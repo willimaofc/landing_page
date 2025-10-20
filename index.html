@@ -14,15 +14,15 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ===== NAVBAR ===== -->
   <nav>
     <div class="nav-container">
-      <div class="logo" data-aos="zoom-in">Wilton <span>Lima</span></div>
+      <div class="logo">Wilton <span>Lima</span></div>
       <div class="links">
         <a href="#home">Home</a>
         <a href="#about">Sobre</a>
         <a href="#skills">Skills</a>
-        <a href="#ctfs">CTFs</a>
+        <a href="ctfs.html">CTFs</a> <!-- link para nova página -->
         <a href="#contact">Contato</a>
       </div>
     </div>
@@ -30,16 +30,16 @@
     <!-- Ícone menu mobile -->
     <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     <div class="dropdown" id="dropdown">
-      <a href="#Home" onclick="cancel()">Home</a>
-      <a href="#Sobre" onclick="cancel()">Sobre</a>
-      <a href="#Skills" onclick="cancel()">Skills</a>
-      <a href="#CTFs" onclick="cancel()">CTFs</a>
-      <a href="#Contato" onclick="cancel()">Contato</a>
+      <a href="#home" onclick="cancel()">Home</a>
+      <a href="#about" onclick="cancel()">Sobre</a>
+      <a href="#skills" onclick="cancel()">Skills</a>
+      <a href="ctfs.html" onclick="cancel()">CTFs</a>
+      <a href="#contact" onclick="cancel()">Contato</a>
       <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
     </div>
   </nav>
 
-  <!-- HOME -->
+  <!-- ===== HOME ===== -->
   <section id="home" class="section">
     <div class="main-container">
       <div class="content">
@@ -50,7 +50,7 @@
         </div>
 
         <p class="lead" data-aos="flip-down">
-          Apaixonado por tecnologia e cibersegurança. Estudo pentest, OSINT e participo de CTFs para aprimorar minhas habilidades de segurança ofensiva.
+          Apaixonado por tecnologia e cibersegurança. Trabalho com Suporte Técnico N1 e estudo pentest, OSINT e CTFs para evoluir como profissional em segurança ofensiva.
         </p>
 
         <div class="social-links">
@@ -69,94 +69,71 @@
     </div>
   </section>
 
-  <!-- SOBRE -->
+  <!-- ===== SOBRE ===== -->
   <section id="about" class="section about-section">
-    <div class="container about-content" data-aos="fade-up">
-      <div class="about-text">
-        <h2>Sobre Mim</h2>
-        <p>
-          Sou Wilton, apaixonado por tecnologia, segurança da informação e desafios CTF. 
-          Me dedico a estudar pentest, análise de vulnerabilidades, OSINT, redes e engenharia social. 
-          Meu objetivo é me tornar um profissional de destaque em cibersegurança.
-        </p>
-      </div>
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Sobre Mim</h2>
+      <p class="about-text">
+        Meu nome é Wilton, sou natural da Bahia e atualmente atuo com Suporte Técnico N1, onde desenvolvo habilidades em diagnóstico de problemas, atendimento ao usuário e infraestrutura. Paralelamente, estudo cibersegurança com foco em pentest, OSINT e segurança ofensiva.
+
+        Encontrei nos Capture The Flag (CTFs) uma forma prática de evoluir, explorando vulnerabilidades de maneira ética e responsável. Já participei de desafios em plataformas como TryHackMe, Hack The Box e PicoCTF.
+
+        Meu objetivo é me tornar pentester profissional, conquistar certificações como eJPT e OSCP, e contribuir com a comunidade registrando writeups e conhecimentos adquiridos no caminho do hacking ético.
+      </p>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ===== SKILLS ===== -->
   <section id="skills" class="section skills-section">
     <div class="container" data-aos="fade-up">
       <h2 class="section-title">Skills</h2>
+
+      <!-- Desenvolvimento -->
+      <h3 class="skill-category-title">💻 Desenvolvimento & Automação</h3>
       <div class="skills-grid">
-
         <div class="skill-card">
-          <span>HTML</span>
-          <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+          <i class="fa-brands fa-html5"></i> <span>HTML</span>
         </div>
-
         <div class="skill-card">
-          <span>Python</span>
-          <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+          <i class="fa-brands fa-css3-alt"></i> <span>CSS</span>
         </div>
-
         <div class="skill-card">
-          <span>Linux</span>
-          <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+          <i class="fa-brands fa-python"></i> <span>Python</span>
         </div>
+      </div>
 
-        <div class="skill-card">
-          <span>OSINT</span>
-          <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
-        </div>
+      <!-- Ferramentas -->
+      <h3 class="skill-category-title">🖥 Sistemas & Ferramentas</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-linux"></i> <span>Linux</span></div>
+        <div class="skill-card"><i class="fa-brands fa-git-alt"></i> <span>Git</span></div>
+        <div class="skill-card"><i class="fa-solid fa-terminal"></i> <span>Bash / Terminal</span></div>
+        <div class="skill-card"><i class="fa-solid fa-headset"></i> <span>Windows</span></div>
+      </div>
 
-        <div class="skill-card">
-          <span>Web Pentest</span>
-          <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
-        </div>
-
+      <!-- Segurança -->
+      <h3 class="skill-category-title">🔐 Cibersegurança & Pentest</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-solid fa-shield-halved"></i> <span>Nmap</span></div>
+        <div class="skill-card"><i class="fa-solid fa-bug"></i> <span>Burp Suite</span></div>
+        <div class="skill-card"><i class="fa-solid fa-user-secret"></i> <span>OSINT</span></div>
+        <div class="skill-card"><i class="fa-solid fa-globe"></i> <span>Web Pentest</span></div>
+        <div class="skill-card"><i class="fa-solid fa-flag-checkered"></i> <span>CTFs</span></div>
       </div>
     </div>
   </section>
 
-  <!-- CTFs -->
-  <section id="ctfs" class="section ctf-section">
-    <div class="container" data-aos="fade-up">
-      <h2 class="section-title">CTFs</h2>
-      <div class="ctf-grid">
-
-        <div class="ctf-card">
-          <div class="ctf-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>TryHackMe</h3>
-          <p>Laboratórios práticos de cibersegurança para iniciantes e avançados.</p>
-        </div>
-
-        <div class="ctf-card">
-          <div class="ctf-icon"><i class="fa-solid fa-bug"></i></div>
-          <h3>Hack The Box</h3>
-          <p>Máquinas reais para pentest, desafios e aprendizado hands-on.</p>
-        </div>
-
-        <div class="ctf-card">
-          <div class="ctf-icon"><i class="fa-solid fa-flag-checkered"></i></div>
-          <h3>PicoCTF</h3>
-          <p>Plataforma voltada para aprendizagem de segurança de forma gamificada.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
+  <!-- ===== CONTATO ===== -->
   <section id="contact" class="section contact-section">
     <div class="container" data-aos="fade-up">
       <h2 class="section-title">Contato</h2>
       <form action="https://formsubmit.co/wiltonlima.oficial@outlook.com" method="POST" class="contact-form">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Novo contato do portfólio!">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="Contato do Portfólio" />
 
-        <input type="text" name="name" placeholder="Wilton Lima" required>
-        <input type="email" name="email" placeholder="wiltonlima.oficial@outlook.com" required>
-        <textarea name="message" placeholder="Escreva sua mensagem..." rows="5" required></textarea>
+        <input type="text" name="name" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu email" required>
+        <textarea name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
         <button type="submit" class="btn-primary">Enviar</button>
       </form>
 
@@ -165,16 +142,13 @@
         <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>© <span id="year"></span> Wilton Lima - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>AOS.init();</script>
   <script src="script.js"></script>
