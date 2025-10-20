@@ -1,5 +1,497 @@
 /* =========================================================
-   🌟 PROJETOS (projetos.html)
+   BASE DO SITE (Parte 1)
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+nav {
+  width: 100%;
+  background: #ffffffdd;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: #007bff;
+}
+
+nav .links {
+  display: flex;
+  gap: 20px;
+}
+
+nav .links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: .3s;
+}
+
+nav .links a:hover,
+nav .links a.active {
+  color: #007bff;
+}
+
+.hamburg {
+  display: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+/* MENU DROPDOWN (CELULAR) */
+.dropdown {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-direction: column;
+}
+
+.dropdown a {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.cancel {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   HOME / HERO
+   ========================================================= */
+
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.content h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.content h1 span {
+  color: #007bff;
+}
+
+.typewriter {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.typewriter label {
+  opacity: 0.5;
+  margin-left: 4px;
+}
+
+.lead {
+  margin: 20px 0;
+  max-width: 550px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: .3s;
+}
+
+.social-links a:hover {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-primary:hover {
+  background: #0056d2;
+}
+
+.profile-photo {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 2px solid #eee;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   SOBRE (Parte 2)
+   ========================================================= */
+
+.about-section {
+  background: #f7f9fc;
+  text-align: center;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* =========================================================
+   SKILLS COM ÍCONES + CATEGORIAS (Parte 2)
+   ========================================================= */
+
+.skill-category-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  text-align: center;
+  color: #222;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: #f7f9fc;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  transition: .3s;
+  justify-content: center;
+}
+
+.skill-card i {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   CTFs – Página Principal (index.html) (Parte 2)
+   ========================================================= */
+
+.ctf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.ctf-card {
+  background: #f7f9fc;
+  border: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.ctf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ctf-card .ctf-icon {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   Página: CTFs & Writeups (ctfs.html) (Parte 2)
+   ========================================================= */
+
+.section-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.section-subtitle i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.ctf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ctf-item {
+  background: #f7f9fc;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.ctf-item h3 {
+  margin-bottom: 8px;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.ctf-item p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.ctf-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.writeup-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.writeup-link:hover {
+  text-decoration: underline;
+}
+
+.ctf-item.pending {
+  opacity: 0.6;
+}
+
+/* =========================================================
+   CONTATO (Parte 3)
+   ========================================================= */
+
+.contact-section {
+  background: #fff;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: .3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0,123,255,0.3);
+}
+
+.contact-form button {
+  background: #007bff;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.contact-form button:hover {
+  background: #0056d2;
+}
+
+/* Ícones de redes sociais abaixo do formulário */
+.contact-social {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-social a {
+  font-size: 1.5rem;
+  color: #333;
+  transition: .3s;
+}
+
+.contact-social a:hover {
+  color: #007bff;
+}
+
+/* =========================================================
+   FOOTER (Parte 3)
+   ========================================================= */
+
+.footer {
+  background: #f7f9fc;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  border-top: 1px solid #eee;
+}
+
+.footer span {
+  color: #007bff;
+}
+
+/* =========================================================
+   RESPONSIVIDADE (MOBILE) (Parte 3)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav .links {
+    display: none;
+  }
+
+  .hamburg {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .skill-card {
+    padding: 12px;
+    font-size: .9rem;
+  }
+
+  .ctf-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  }
+}
+
+/* =========================================================
+   🌟 PROJETOS (Parte Projetos)
    ========================================================= */
 
 .projects-grid {
