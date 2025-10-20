@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTFs & Writeups - Wilton Lima</title>
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Wilton <span>Lima</span></div>
+      <div class="links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="ctfs.html" class="active">CTFs</a>
+        <a href="index.html#contact">Contato</a>
+      </div>
+    </div>
+    <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    <div class="dropdown" id="dropdown">
+      <a href="index.html#home" onclick="cancel()">Home</a>
+      <a href="index.html#about" onclick="cancel()">Sobre</a>
+      <a href="index.html#skills" onclick="cancel()">Skills</a>
+      <a href="ctfs.html" onclick="cancel()">CTFs</a>
+      <a href="index.html#contact" onclick="cancel()">Contato</a>
+      <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="section">
+    <div class="container" data-aos="fade-up">
+      <h1 class="section-title">CTFs & Writeups</h1>
+      <p class="lead">
+        Aqui você encontra os desafios de CTF que realizei ou estou estudando. Incluo writeups, soluções, anotações e meu progresso em plataformas como TryHackMe, Hack The Box e PicoCTF.
+      </p>
+    </div>
+  </header>
+
+  <!-- TRYHACKME -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-subtitle"><i class="fa-solid fa-shield-halved"></i> TryHackMe</h2>
+
+      <div class="ctf-list">
+
+        <div class="ctf-item">
+          <h3>✅ RootMe</h3>
+          <p>Desafio introdutório, exploração de vulnerabilidade web + escalada de privilégios.</p>
+          <!-- Se tiver writeup, você troca link abaixo -->
+          <a href="#" class="writeup-link"><i class="fa-solid fa-file-pen"></i> Ver Writeup</a>
+        </div>
+
+        <div class="ctf-item">
+          <h3>✅ Bounty Hacker</h3>
+          <p>Enumeração de serviços, cracking de credenciais e exploração SSH.</p>
+          <a href="#" class="writeup-link">Ver Writeup</a>
+        </div>
+
+        <div class="ctf-item pending">
+          <h3>🔄 Anonymous (Em andamento)</h3>
+          <p>Coleta de informações, enumeração do sistema e tentativa de acesso web.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HACK THE BOX -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-subtitle"><i class="fa-solid fa-bug"></i> Hack The Box</h2>
+
+      <div class="ctf-list">
+        <div class="ctf-item">
+          <h3>✅ Blue</h3>
+          <p>Exploração de MS17-010 (EternalBlue). Execução de código remoto.</p>
+          <a href="#" class="writeup-link">Ver Writeup</a>
+        </div>
+
+        <div class="ctf-item">
+          <h3>🔄 Lame (Estudando)</h3>
+          <p>Máquina Linux com VSFTPD e Samba vulneráveis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICOCTF -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-subtitle"><i class="fa-solid fa-flag-checkered"></i> PicoCTF</h2>
+
+      <div class="ctf-list">
+        <div class="ctf-item">
+          <h3>✅ Bandit (OverTheWire)</h3>
+          <p>Aprendizado básico de terminal Linux, SSH e manipulação de arquivos.</p>
+          <a href="#" class="writeup-link">Ver Writeup</a>
+        </div>
+
+        <div class="ctf-item pending">
+          <h3>🕒 Em breve...</h3>
+          <p>Novos desafios e writeups serão adicionados conforme avanço nos estudos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Wilton Lima - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js"></script>
+</body>
+</html>
