@@ -1,164 +1,182 @@
-<!-- Full Improved Portfolio HTML -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>Wilton Lima | Portfólio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Wilton Lima</title>
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Wilton <span>Lima</span></div>
-            <div class="links">
-                <a href="#home">Home</a>
-                <a href="#about">Sobre</a>
-                <a href="#skills">Skills</a>
-                <a href="#ctfs">CTFs</a>
-                <a href="#contact">Contato</a>
-            </div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-            <div class="links">
-                <a href="#home">Home</a>
-                <a href="#about">Sobre</a>
-                <a href="#skills">Skills</a>
-                <a href="#ctfs">CTFs</a>
-                <a href="#contact">Contato</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="main-container">
-            <div class="content">
-                <h1>Olá, sou o <span>Wilton</span></h1>
-                <div class="typewriter">I'm a <span class="typewriter-text"></span><label>|</label></div>
-                <p>Sou apaixonado por tecnologia, cibersegurança e desafios de CTF. Desenvolvo projetos, estudo pentest e busco me tornar especialista em segurança da informação.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://facebook.com/seu-perfil" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://twitter.com/seu-perfil" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-                <div class="btn">
-                    <a href="assets/cv/Curriculo-Wilton.pdf" download><button>Download CV</button></a>
-                </div>
-            </div>
-            <div class="image">
-                <img src="assets/images/wilton.jpg" alt="Wilton Lima" class="profile-photo">
-            </div>
-        </div>
-    </section>
-
-<!-- Seção CTFs -->
-<section id="ctfs">
-  <h2 data-aos="fade-up">CTFs</h2>
-  <div class="ctf-container" data-aos="fade-up">
-    <div class="ctf-card">
-      <h3>TryHackMe</h3>
-      <p>Plataforma com laboratórios práticos de cibersegurança para iniciantes e avançados.</p>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo" data-aos="zoom-in">Wilton <span>Lima</span></div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#ctfs">CTFs</a>
+        <a href="#contact">Contato</a>
+      </div>
     </div>
-    <div class="ctf-card">
-      <h3>Hack The Box</h3>
-      <p>Desafios e máquinas reais de pentest para aprimorar habilidades ofensivas.</p>
+
+    <!-- Ícone menu mobile -->
+    <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    <div class="dropdown" id="dropdown">
+      <a href="#Home" onclick="cancel()">Home</a>
+      <a href="#Sobre" onclick="cancel()">Sobre</a>
+      <a href="#Skills" onclick="cancel()">Skills</a>
+      <a href="#CTFs" onclick="cancel()">CTFs</a>
+      <a href="#Contato" onclick="cancel()">Contato</a>
+      <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
     </div>
-    <div class="ctf-card">
-      <h3>PicoCTF</h3>
-      <p>Desafios criados pela Carnegie Mellon focados em aprendizado para iniciantes.</p>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="section">
+    <div class="main-container">
+      <div class="content">
+        <h1 data-aos="fade-left">Olá, sou o <span>Wilton</span></h1>
+
+        <div class="typewriter" data-aos="fade-right">
+          I'm a <span class="typewriter-text"></span><label>|</label>
+        </div>
+
+        <p class="lead" data-aos="flip-down">
+          Apaixonado por tecnologia e cibersegurança. Estudo pentest, OSINT e participo de CTFs para aprimorar minhas habilidades de segurança ofensiva.
+        </p>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <a href="assets/cv/Currículo.pdf" class="btn-primary" download>Download CV</a>
+      </div>
+
+      <div class="image" data-aos="zoom-in">
+        <img src="assets/images/wilton.jpg" alt="Wilton Lima" class="profile-photo"/>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Seção Contato -->
-<section id="contato">
-  <h2 data-aos="fade-up">Contato</h2>
-  <form action="https://formsubmit.co/seu-email" method="POST" class="contact-form" data-aos="fade-up">
-    <input type="text" name="name" placeholder="Seu Nome" required>
-    <input type="email" name="email" placeholder="Seu Email" required>
-    <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-
-    <!-- About Section -->
-    <section id="about">
+  <!-- SOBRE -->
+  <section id="about" class="section about-section">
+    <div class="container about-content" data-aos="fade-up">
+      <div class="about-text">
         <h2>Sobre Mim</h2>
-        <p>Meu nome é Wilton, sou estudante de cibersegurança e apaixonado por tecnologia desde cedo. Gosto de explorar sistemas, participar de CTFs (Capture the Flag) e entender como as coisas funcionam por trás do código.</p>
-        <p>Atualmente estudo técnicas de pentest, engenharia social e segurança ofensiva, sempre buscando evoluir e me tornar um profissional completo na área de segurança da informação.</p>
-    </section>
+        <p>
+          Sou Wilton, apaixonado por tecnologia, segurança da informação e desafios CTF. 
+          Me dedico a estudar pentest, análise de vulnerabilidades, OSINT, redes e engenharia social. 
+          Meu objetivo é me tornar um profissional de destaque em cibersegurança.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({ offset: 0 });
-    </script>
+  <!-- SKILLS -->
+  <section id="skills" class="section skills-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
 
-    <script>
-        const texts = ["Cybersecurity Enthusiast", "Pentester", "CTF Player", "Developer"];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let letter = "";
+        <div class="skill-card">
+          <span>HTML</span>
+          <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+        </div>
 
-        (function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            document.querySelector('.typewriter-text').textContent = letter;
+        <div class="skill-card">
+          <span>Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+        </div>
 
-            if (letter.length === currentText.length) {
-                count++;
-                index = 0;
-                setTimeout(type, 1200);
-            } else {
-                setTimeout(type, 100);
-            }
-        })();
-    </script>
+        <div class="skill-card">
+          <span>Linux</span>
+          <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="skill-card">
+          <span>OSINT</span>
+          <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
+        </div>
 
-<!-- Seção Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-container">
-    <div class="skill"><span>HTML</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    <div class="skill"><span>Python</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
-    <div class="skill"><span>Linux</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    <div class="skill"><span>OSINT</span><div class="bar"><div class="fill" style="width:75%"></div></div></div>
-    <div class="skill"><span>Web Pentest</span><div class="bar"><div class="fill" style="width:70%"></div></div></div>
-  </div>
-</section>
+        <div class="skill-card">
+          <span>Web Pentest</span>
+          <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
+        </div>
 
-<!-- Seção CTFs -->
-<section id="ctfs">
-  <h2>CTFs</h2>
-  <div class="ctf-cards">
-    <div class="card">TryHackMe</div>
-    <div class="card">HackTheBox</div>
-    <div class="card">PicoCTF</div>
-  </div>
-</section>
+      </div>
+    </div>
+  </section>
 
-<!-- Seção Contato -->
-<section id="contact">
-  <h2>Contato</h2>
-  <form class="contact-form">
-    <input type="text" placeholder="Wilton Lima" required>
-    <input type="email" placeholder="wiltonlima.oficial@outlook.com." required>
-    <textarea placeholder="Sua Mensagem" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
+  <!-- CTFs -->
+  <section id="ctfs" class="section ctf-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">CTFs</h2>
+      <div class="ctf-grid">
 
+        <div class="ctf-card">
+          <div class="ctf-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>TryHackMe</h3>
+          <p>Laboratórios práticos de cibersegurança para iniciantes e avançados.</p>
+        </div>
+
+        <div class="ctf-card">
+          <div class="ctf-icon"><i class="fa-solid fa-bug"></i></div>
+          <h3>Hack The Box</h3>
+          <p>Máquinas reais para pentest, desafios e aprendizado hands-on.</p>
+        </div>
+
+        <div class="ctf-card">
+          <div class="ctf-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+          <h3>PicoCTF</h3>
+          <p>Plataforma voltada para aprendizagem de segurança de forma gamificada.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contact" class="section contact-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Contato</h2>
+      <form action="https://formsubmit.co/wiltonlima.oficial@outlook.com" method="POST" class="contact-form">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Novo contato do portfólio!">
+
+        <input type="text" name="name" placeholder="Wilton Lima" required>
+        <input type="email" name="email" placeholder="wiltonlima.oficial@outlook.com" required>
+        <textarea name="message" placeholder="Escreva sua mensagem..." rows="5" required></textarea>
+        <button type="submit" class="btn-primary">Enviar</button>
+      </form>
+
+      <div class="contact-social">
+        <a href="mailto:wiltonlima.oficial@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Wilton Lima - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js"></script>
 </body>
 </html>
