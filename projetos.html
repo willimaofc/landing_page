@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos - Wilton Lima</title>
+
+  <!-- Ícones e animações -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Wilton <span>Lima</span></div>
+      <div class="links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="ctfs.html">CTFs</a>
+        <a href="projetos.html" class="active">Projetos</a>
+        <a href="index.html#contact">Contato</a>
+      </div>
+    </div>
+    <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    <div class="dropdown" id="dropdown">
+      <a href="index.html#home" onclick="cancel()">Home</a>
+      <a href="index.html#about" onclick="cancel()">Sobre</a>
+      <a href="index.html#skills" onclick="cancel()">Skills</a>
+      <a href="ctfs.html" onclick="cancel()">CTFs</a>
+      <a href="projetos.html" onclick="cancel()">Projetos</a>
+      <a href="index.html#contact" onclick="cancel()">Contato</a>
+      <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="section">
+    <div class="container" data-aos="fade-up">
+      <h1 class="section-title">Projetos</h1>
+      <p class="lead">Aqui estão alguns projetos e scripts que desenvolvi ou estou estudando. Incluo desde automações, ferramentas de segurança, páginas web e writeups de CTFs.</p>
+    </div>
+  </header>
+
+  <!-- GRID DE PROJETOS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="projects-grid" data-aos="fade-up">
+
+        <!-- PROJETO 1 -->
+        <div class="project-card">
+          <i class="fa-solid fa-folder-open project-icon"></i>
+          <h3>Automação de Backup no Windows</h3>
+          <p>Script .bat que automatiza backup de arquivos em diretórios específicos.</p>
+          <span class="tech">Batch • PowerShell</span>
+          <a href="#" class="btn-project">Ver no GitHub</a>
+        </div>
+
+        <!-- PROJETO 2 -->
+        <div class="project-card">
+          <i class="fa-solid fa-network-wired project-icon"></i>
+          <h3>Scanner de Portas em Python</h3>
+          <p>Ferramenta para escanear portas abertas usando sockets.</p>
+          <span class="tech">Python • Sockets</span>
+          <a href="#" class="btn-project">Ver no GitHub</a>
+        </div>
+
+        <!-- PROJETO 3 -->
+        <div class="project-card">
+          <i class="fa-solid fa-globe project-icon"></i>
+          <h3>Portfólio Pessoal</h3>
+          <p>Site que apresenta minhas habilidades, CTFs, projetos e trajetória na cibersegurança.</p>
+          <span class="tech">HTML • CSS • JS</span>
+          <a href="index.html" class="btn-project">Acessar</a>
+        </div>
+
+        <!-- PROJETO 4 -->
+        <div class="project-card">
+          <i class="fa-solid fa-file-pen project-icon"></i>
+          <h3>Writeup - RootMe (TryHackMe)</h3>
+          <p>Análise das vulnerabilidades exploradas no desafio RootMe.</p>
+          <span class="tech">Linux • Pentest</span>
+          <a href="#" class="btn-project">PDF / GitHub</a>
+        </div>
+
+        <!-- PROJETO 5 -->
+        <div class="project-card">
+          <i class="fa-solid fa-terminal project-icon"></i>
+          <h3>Ferramenta de OSINT</h3>
+          <p>Script para coleta automatizada de e-mails e dados públicos.</p>
+          <span class="tech">Python • Requests • Regex</span>
+          <a href="#" class="btn-project">Em Breve</a>
+        </div>
+
+        <!-- PROJETO 6 -->
+        <div class="project-card">
+          <i class="fa-solid fa-code project-icon"></i>
+          <h3>Automação de Pentest com Bash</h3>
+          <p>Script que automatiza Nmap + Nikto + Enumeração DNS.</p>
+          <span class="tech">Bash • Linux</span>
+          <a href="#" class="btn-project">Em Breve</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Wilton Lima - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js"></script>
+
+</body>
+</html>
