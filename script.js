@@ -1,48 +1,39 @@
+// Ano automático no rodapé
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+});
+
+// Menu mobile
 function hamburg(){
-    const navbar = document.querySelector(".dropdown")
-    navbar.style.transform  = "translateY(0px)"
+  const dd = document.getElementById('dropdown');
+  if (dd) dd.style.display = 'block';
 }
 function cancel(){
-    const navbar = document.querySelector(".dropdown")
-    navbar.style.transform  = "translateY(-500px)"
+  const dd = document.getElementById('dropdown');
+  if (dd) dd.style.display = 'none';
 }
 
-// for Typewriter effect
+// Typewriter
+(function typewriterInit(){
+  const el = document.querySelector('.typewriter-text');
+  if(!el) return;
+  const texts = ["Cybersecurity Enthusiast", "Pentester", "CTF Player", "Developer"];
+  let count = 0, index = 0, current = "", letter = "";
 
-const texts = [
-    "DEVELOPER",
-    "YOUTUBER",
-    "DESIGNER"
-]
+  function type(){
+    if(count === texts.length) count = 0;
+    current = texts[count];
+    letter = current.slice(0, ++index);
+    el.textContent = letter;
 
-let speed = 100;
-
-const textElements = document.querySelector(".typewriter-text")
-
-let textIndex = 0;
-let charcterIndex = 0;
-
-function typeWriter() {
-    if(charcterIndex < texts[textIndex].length){
-        textElements.innerHTML += texts[textIndex].charAt(charcterIndex);
-        charcterIndex++;
-        setTimeout(typeWriter, speed); 
+    if(letter.length === current.length){
+      count++;
+      index = 0;
+      setTimeout(type, 1000); // pausa entre frases
+    }else{
+      setTimeout(type, 90); // velocidade da digitação
     }
-    else{
-        setTimeout(eraseText, 1000)
-    }
-}
-
-function eraseText() {
-    if(textElements.innerHTML.length > 0){
-        textElements.innerHTML = textElements.innerHTML.slice(0,-1)
-        setTimeout(eraseText, 50)
-    }
-    else{
-        textIndex = (textIndex + 1) % texts.length;
-        charcterIndex = 0;
-        setTimeout(typeWriter,500)
-    }
-}
-
-window.onload = typeWriter;
+  }
+  type();
+})();
