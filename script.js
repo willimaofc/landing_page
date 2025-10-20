@@ -1,39 +1,67 @@
-// Ano automático no rodapé
-document.addEventListener('DOMContentLoaded', () => {
-  const y = document.getElementById('year');
-  if (y) y.textContent = new Date().getFullYear();
+// ======================
+// Ano automático no Footer
+// ======================
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });
 
-// Menu mobile
-function hamburg(){
-  const dd = document.getElementById('dropdown');
-  if (dd) dd.style.display = 'block';
+
+// ======================
+// Menu Mobile
+// ======================
+function hamburg() {
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown) {
+    dropdown.style.display = "flex"; // mostra o menu
+  }
 }
-function cancel(){
-  const dd = document.getElementById('dropdown');
-  if (dd) dd.style.display = 'none';
+
+function cancel() {
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown) {
+    dropdown.style.display = "none"; // esconde o menu
+  }
 }
 
-// Typewriter
-(function typewriterInit(){
-  const el = document.querySelector('.typewriter-text');
-  if(!el) return;
-  const texts = ["Cybersecurity Enthusiast", "Pentester", "CTF Player", "Developer"];
-  let count = 0, index = 0, current = "", letter = "";
 
-  function type(){
-    if(count === texts.length) count = 0;
-    current = texts[count];
-    letter = current.slice(0, ++index);
-    el.textContent = letter;
+// ======================
+// Efeito Digitando (Typewriter)
+// ======================
+(function typewriterInit() {
+  const textElement = document.querySelector(".typewriter-text");
+  if (!textElement) return;
 
-    if(letter.length === current.length){
+  const texts = [
+    "Cybersecurity Enthusiast",
+    "Pentester",
+    "CTF Player",
+    "Bug Hunter",
+    "Developer"
+  ];
+
+  let count = 0;
+  let index = 0;
+
+  function type() {
+    if (count === texts.length) {
+      count = 0;
+    }
+
+    let currentText = texts[count];
+    let letter = currentText.slice(0, ++index);
+    textElement.textContent = letter;
+
+    if (letter.length === currentText.length) {
       count++;
       index = 0;
       setTimeout(type, 1000); // pausa entre frases
-    }else{
-      setTimeout(type, 90); // velocidade da digitação
+    } else {
+      setTimeout(type, 100); // velocidade da digitação
     }
   }
+
   type();
 })();
