@@ -1,556 +1,167 @@
-/* =========================================================
-   BASE DO SITE (Parte 1)
-   ========================================================= */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Wilton Lima</title>
+
+  <!-- Font Awesome & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Wilton <span>Lima</span></div>
+<div class="links">
+  <a href="#home">Home</a>
+  <a href="#about">Sobre</a>
+  <a href="#skills">Skills</a>
+  <a href="ctfs.html">CTFs</a>
+  <a href="projetos.html">Projetos</a> <!-- ✅ ADICIONADO -->
+  <a href="#contact">Contato</a>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+</div>
+
+    </div>
+
+    <!-- Ícone menu mobile -->
+    <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    <div class="dropdown" id="dropdown">
+  <a href="index.html#home" onclick="cancel()">Home</a>
+  <a href="index.html#about" onclick="cancel()">Sobre</a>
+  <a href="index.html#skills" onclick="cancel()">Skills</a>
+  <a href="ctfs.html" onclick="cancel()">CTFs</a>
+  <a href="projetos.html" onclick="cancel()">Projetos</a> <!-- ✅ ADICIONADO -->
+  <a href="index.html#contact" onclick="cancel()">Contato</a>
+  <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+</div>
+
+  </nav>
+
+  <!-- ===== HOME ===== -->
+  <section id="home" class="section">
+    <div class="main-container">
+      <div class="content">
+        <h1 data-aos="fade-left">Olá, sou o <span>Wilton</span></h1>
+
+        <div class="typewriter" data-aos="fade-right">
+          I'm a <span class="typewriter-text"></span><label>|</label>
+        </div>
+
+        <p class="lead" data-aos="flip-down">
+          Apaixonado por tecnologia e cibersegurança. Trabalho com Suporte Técnico N1 e estudo pentest, OSINT e CTFs para evoluir como profissional em segurança ofensiva.
+        </p>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <a href="assets/cv/Currículo.pdf" class="btn-primary" download>Download CV</a>
+      </div>
+
+      <div class="image" data-aos="zoom-in">
+        <img src="assets/images/wilton.jpg" alt="Wilton Lima" class="profile-photo"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="about" class="section about-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Sobre Mim</h2>
+      <p class="about-text">
+        Meu nome é Wilton, sou natural da Bahia e atualmente atuo com Suporte Técnico N1, onde desenvolvo habilidades em diagnóstico de problemas, atendimento ao usuário e infraestrutura. Paralelamente, estudo cibersegurança com foco em pentest, OSINT e segurança ofensiva.
+
+        Encontrei nos Capture The Flag (CTFs) uma forma prática de evoluir, explorando vulnerabilidades de maneira ética e responsável. Já participei de desafios em plataformas como TryHackMe, Hack The Box e PicoCTF.
+
+        Meu objetivo é me tornar pentester profissional, conquistar certificações como eJPT e OSCP, e contribuir com a comunidade registrando writeups e conhecimentos adquiridos no caminho do hacking ético.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section skills-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Skills</h2>
+
+      <!-- Desenvolvimento -->
+      <h3 class="skill-category-title">💻 Desenvolvimento & Automação</h3>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-brands fa-html5"></i> <span>HTML</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-css3-alt"></i> <span>CSS</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-python"></i> <span>Python</span>
+        </div>
+      </div>
+
+      <!-- Ferramentas -->
+      <h3 class="skill-category-title">🖥 Sistemas & Ferramentas</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-linux"></i> <span>Linux</span></div>
+        <div class="skill-card"><i class="fa-brands fa-git-alt"></i> <span>Git</span></div>
+        <div class="skill-card"><i class="fa-solid fa-terminal"></i> <span>Bash / Terminal</span></div>
+        <div class="skill-card"><i class="fa-solid fa-headset"></i> <span>Windows</span></div>
+      </div>
+
+      <!-- Segurança -->
+      <h3 class="skill-category-title">🔐 Cibersegurança & Pentest</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-solid fa-shield-halved"></i> <span>Nmap</span></div>
+        <div class="skill-card"><i class="fa-solid fa-bug"></i> <span>Burp Suite</span></div>
+        <div class="skill-card"><i class="fa-solid fa-user-secret"></i> <span>OSINT</span></div>
+        <div class="skill-card"><i class="fa-solid fa-globe"></i> <span>Web Pentest</span></div>
+        <div class="skill-card"><i class="fa-solid fa-flag-checkered"></i> <span>CTFs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Contato</h2>
+      <form action="https://formsubmit.co/wiltonlima.oficial@outlook.com" method="POST" class="contact-form">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="Contato do Portfólio" />
+
+        <input type="text" name="name" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu email" required>
+        <textarea name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+        <button type="submit" class="btn-primary">Enviar</button>
+      </form>
+
+      <div class="contact-social">
+        <a href="mailto:wiltonlima.oficial@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Wilton Lima - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js"></script>
+</body>
+</html>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: #fff;
-  color: #333;
-  scroll-behavior: smooth;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.section {
-  padding: 80px 20px;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #222;
-}
-
-.section-title::after {
-  content: "";
-  width: 60px;
-  height: 4px;
-  background: #007bff;
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 4px;
-}
-
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
-nav {
-  width: 100%;
-  background: #ffffffdd;
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #eee;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.logo span {
-  color: #007bff;
-}
-
-nav .links {
-  display: flex;
-  gap: 20px;
-}
-
-nav .links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: .3s;
-}
-
-nav .links a:hover,
-nav .links a.active {
-  color: #007bff;
-}
-
-.hamburg {
-  display: none;
-  cursor: pointer;
-  font-size: 1.4rem;
-}
-
-/* MENU DROPDOWN (CELULAR) */
-.dropdown {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 70%;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  flex-direction: column;
-}
-
-.dropdown a {
-  font-size: 1.2rem;
-  color: #333;
-  text-decoration: none;
-  margin-bottom: 15px;
-}
-
-.cancel {
-  font-size: 1.4rem;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-}
-
-/* =========================================================
-   HOME / HERO
-   ========================================================= */
-
-.main-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.content h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-}
-
-.content h1 span {
-  color: #007bff;
-}
-
-.typewriter {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.typewriter label {
-  opacity: 0.5;
-  margin-left: 4px;
-}
-
-.lead {
-  margin: 20px 0;
-  max-width: 550px;
-  line-height: 1.6;
-  color: #555;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-  transition: .3s;
-}
-
-.social-links a:hover {
-  background: #007bff;
-  color: #fff;
-  border-color: #007bff;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #007bff;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: .3s;
-}
-
-.btn-primary:hover {
-  background: #0056d2;
-}
-
-.profile-photo {
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
-  object-fit: cover;
-  border: 2px solid #eee;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* =========================================================
-   SOBRE (Parte 2)
-   ========================================================= */
-
-.about-section {
-  background: #f7f9fc;
-  text-align: center;
-}
-
-.about-text {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
-  font-size: 1rem;
-  color: #555;
-}
-
-/* =========================================================
-   SKILLS COM ÍCONES + CATEGORIAS (Parte 2)
-   ========================================================= */
-
-.skill-category-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 40px 0 20px;
-  text-align: center;
-  color: #222;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.skill-card {
-  background: #f7f9fc;
-  padding: 15px;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  transition: .3s;
-  justify-content: center;
-}
-
-.skill-card i {
-  font-size: 1.5rem;
-  color: #007bff;
-}
-
-.skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* =========================================================
-   CTFs – Página Principal (index.html) (Parte 2)
-   ========================================================= */
-
-.ctf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.ctf-card {
-  background: #f7f9fc;
-  border: 1px solid #eee;
-  padding: 20px;
-  text-align: center;
-  border-radius: 12px;
-  transition: .3s;
-}
-
-.ctf-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.ctf-card .ctf-icon {
-  font-size: 2rem;
-  color: #007bff;
-  margin-bottom: 10px;
-}
-
-/* =========================================================
-   Página: CTFs & Writeups (ctfs.html) (Parte 2)
-   ========================================================= */
-
-.section-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #222;
-}
-
-.section-subtitle i {
-  margin-right: 10px;
-  color: #007bff;
-}
-
-.ctf-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.ctf-item {
-  background: #f7f9fc;
-  border: 1px solid #eee;
-  padding: 20px;
-  border-radius: 12px;
-  transition: .3s;
-}
-
-.ctf-item h3 {
-  margin-bottom: 8px;
-  color: #007bff;
-  font-size: 1.2rem;
-}
-
-.ctf-item p {
-  margin-bottom: 10px;
-  color: #555;
-}
-
-.ctf-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.writeup-link {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: .3s;
-}
-
-.writeup-link:hover {
-  text-decoration: underline;
-}
-
-.ctf-item.pending {
-  opacity: 0.6;
-}
-
-/* =========================================================
-   CONTATO (Parte 3)
-   ========================================================= */
-
-.contact-section {
-  background: #fff;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: .3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0,123,255,0.3);
-}
-
-.contact-form button {
-  background: #007bff;
-  border: none;
-  color: #fff;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: .3s;
-}
-
-.contact-form button:hover {
-  background: #0056d2;
-}
-
-/* Ícones de redes sociais abaixo do formulário */
-.contact-social {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.contact-social a {
-  font-size: 1.5rem;
-  color: #333;
-  transition: .3s;
-}
-
-.contact-social a:hover {
-  color: #007bff;
-}
-
-/* =========================================================
-   FOOTER (Parte 3)
-   ========================================================= */
-
-.footer {
-  background: #f7f9fc;
-  text-align: center;
-  padding: 20px;
-  color: #555;
-  border-top: 1px solid #eee;
-}
-
-.footer span {
-  color: #007bff;
-}
-
-/* =========================================================
-   RESPONSIVIDADE (MOBILE) (Parte 3)
-   ========================================================= */
-
-@media (max-width: 900px) {
-  .main-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav .links {
-    display: none;
-  }
-
-  .hamburg {
-    display: block;
-  }
-}
-
-@media (max-width: 600px) {
-  .profile-photo {
-    width: 250px;
-    height: 250px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-
-  .skill-card {
-    padding: 12px;
-    font-size: .9rem;
-  }
-
-  .ctf-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-  }
-}
-
-/* =========================================================
-   🌟 PROJETOS (Parte Projetos)
-   ========================================================= */
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.project-card {
-  background: #f7f9fc;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: .3s;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.project-icon {
-  font-size: 2rem;
-  color: #007bff;
-  margin-bottom: 5px;
-}
-
-.project-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
-}
-
-.project-card p {
-  font-size: .95rem;
-  color: #555;
-}
-
-.tech {
-  font-size: .85rem;
-  color: #007bff;
-  font-weight: 500;
-}
-
-.btn-project {
-  margin-top: 10px;
-  text-decoration: none;
-  padding: 8px 14px;
-  background: #007bff;
-  color: #fff;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: .3s;
-}
-
-.btn-project:hover {
-  background: #0056d2;
-}
