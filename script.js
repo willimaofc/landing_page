@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
-});
 
+  // Carregar tema salvo
+  loadTheme();
+});
 
 // ======================
 // Menu Mobile
@@ -26,42 +28,77 @@ function cancel() {
   }
 }
 
-
 // ======================
-// Efeito Digitando (Typewriter)
+// Toggle Dark Mode
 // ======================
-(function typewriterInit() {
-  const textElement = document.querySelector(".typewriter-text");
-  if (!textElement) return;
+function toggleTheme() {
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+  const icon = document.querySelector("#theme-toggle i");
+  const iconMobile = document.querySelector("#theme-toggle-mobile i");
 
-  const texts = [
-    "Cybersecurity Enthusiast",
-    "Pentester",
-    "CTF Player",
-    "Bug Hunter",
-    "Developer"
-  ];
+  // Toggle dark mode class
+  body.classList.toggle("dark-mode");
 
-  let count = 0;
-  let index = 0;
-
-  function type() {
-    if (count === texts.length) {
-      count = 0;
+  // Update icons
+  if (body.classList.contains("dark-mode")) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    if (iconMobile) {
+      iconMobile.classList.remove("fa-moon");
+      iconMobile.classList.add("fa-sun");
     }
-
-    let currentText = texts[count];
-    let letter = currentText.slice(0, ++index);
-    textElement.textContent = letter;
-
-    if (letter.length === currentText.length) {
-      count++;
-      index = 0;
-      setTimeout(type, 1000); // pausa entre frases
-    } else {
-      setTimeout(type, 100); // velocidade da digitação
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+    if (iconMobile) {
+      iconMobile.classList.remove("fa-sun");
+      iconMobile.classList.add("fa-moon");
     }
   }
 
-  type();
-})();
+  // Save theme preference
+  const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+}
+
+// Load saved theme
+function loadTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+  const icon = document.querySelector("#theme-toggle i");
+  const iconMobile = document.querySelector("#theme-toggle-mobile i");
+
+  if (savedTheme === "dark") {
+    body.classList.add("dark-mode");
+    if (icon) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
+    if (iconMobile) {
+      iconMobile.classList.remove("fa-moon");
+      iconMobile.classList.add("fa-sun");
+    }
+  } else {
+    body.classList.remove("dark-mode");
+    if (icon) {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
+    if (iconMobile) {
+      iconMobile.classList.remove("fa-sun");
+      iconMobile.classList.add("fa-moon");
+    }
+  }
+
+  // Add event listeners
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
+  }
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener("click", toggleTheme);
+  }
+}
