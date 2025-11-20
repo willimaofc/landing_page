@@ -25,6 +25,9 @@
         <a href="ctfs.html" class="active">CTFs</a>
         <a href="projetos.html">Projetos</a>
         <a href="index.html#contact">Contato</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </div>
 
@@ -36,6 +39,9 @@
       <a href="ctfs.html" onclick="cancel()">CTFs</a>
       <a href="projetos.html" onclick="cancel()">Projetos</a>
       <a href="index.html#contact" onclick="cancel()">Contato</a>
+      <button type="button" id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
       <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
     </div>
   </nav>
@@ -227,6 +233,11 @@ cat /root/root.txt
   <footer class="footer">
     <p>© <span id="year"></span> Wilton Lima — Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" id="back-to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

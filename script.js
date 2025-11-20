@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Iniciar efeito typewriter
   initTypewriter();
+
+  // Iniciar botão voltar ao topo
+  initBackToTop();
 });
 
 // ======================
@@ -152,4 +155,29 @@ function initTypewriter() {
   }
 
   type();
+}
+
+// ======================
+// Back to Top Button
+// ======================
+function initBackToTop() {
+  const backToTopBtn = document.getElementById("back-to-top");
+  if (!backToTopBtn) return;
+
+  // Show/hide button based on scroll position
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  });
+
+  // Scroll to top when clicked
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
 }
