@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Wilton Lima</title>
 
   <!-- Font Awesome & AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
   <!-- CSS principal -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
   <a href="ctfs.html">CTFs</a>
   <a href="projetos.html">Projetos</a> <!-- ✅ ADICIONADO -->
   <a href="#contact">Contato</a>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
     <i class="fa-solid fa-moon"></i>
   </button>
 </div>
@@ -41,7 +41,7 @@
   <a href="ctfs.html" onclick="cancel()">CTFs</a>
   <a href="projetos.html" onclick="cancel()">Projetos</a> <!-- ✅ ADICIONADO -->
   <a href="index.html#contact" onclick="cancel()">Contato</a>
-  <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
+  <button type="button" id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
     <i class="fa-solid fa-moon"></i>
   </button>
   <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
@@ -64,17 +64,17 @@
         </p>
 
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/willimaofc" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
 
         <a href="assets/cv/Currículo.pdf" class="btn-primary" download>Download CV</a>
       </div>
 
       <div class="image" data-aos="zoom-in">
-        <img src="assets/images/wilton.jpg" alt="Wilton Lima" class="profile-photo"/>
+        <img src="assets/images/wilton.jpg" alt="Wilton Lima" class="profile-photo">
       </div>
     </div>
   </section>
@@ -99,7 +99,7 @@
       <h2 class="section-title">Skills</h2>
 
       <!-- Desenvolvimento -->
-      <h3 class="skill-category-title">💻 Desenvolvimento & Automação</h3>
+      <h3 class="skill-category-title">💻 Desenvolvimento &amp; Automação</h3>
       <div class="skills-grid">
         <div class="skill-card">
           <i class="fa-brands fa-html5"></i> <span>HTML</span>
@@ -113,7 +113,7 @@
       </div>
 
       <!-- Ferramentas -->
-      <h3 class="skill-category-title">🖥 Sistemas & Ferramentas</h3>
+      <h3 class="skill-category-title">🖥 Sistemas &amp; Ferramentas</h3>
       <div class="skills-grid">
         <div class="skill-card"><i class="fa-brands fa-linux"></i> <span>Linux</span></div>
         <div class="skill-card"><i class="fa-brands fa-git-alt"></i> <span>Git</span></div>
@@ -122,7 +122,7 @@
       </div>
 
       <!-- Segurança -->
-      <h3 class="skill-category-title">🔐 Cibersegurança & Pentest</h3>
+      <h3 class="skill-category-title">🔐 Cibersegurança &amp; Pentest</h3>
       <div class="skills-grid">
         <div class="skill-card"><i class="fa-solid fa-shield-halved"></i> <span>Nmap</span></div>
         <div class="skill-card"><i class="fa-solid fa-bug"></i> <span>Burp Suite</span></div>
@@ -138,8 +138,8 @@
     <div class="container" data-aos="fade-up">
       <h2 class="section-title">Contato</h2>
       <form action="https://formsubmit.co/wiltonlima.oficial@outlook.com" method="POST" class="contact-form">
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_subject" value="Contato do Portfólio" />
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Contato do Portfólio">
 
         <input type="text" name="name" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu email" required>
@@ -148,9 +148,9 @@
       </form>
 
       <div class="contact-social">
-        <a href="mailto:wiltonlima.oficial@outlook.com"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/willimaofc" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:wiltonlima.oficial@outlook.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/wil-limaofc" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/willimaofc" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
   </section>

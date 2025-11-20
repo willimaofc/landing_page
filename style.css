@@ -608,3 +608,48 @@ nav .links a.active {
 .btn-project:hover {
   background: var(--btn-hover);
 }
+
+/* =========================================================
+   WRITEUP PAGES (rootme.html e similares)
+   ========================================================= */
+
+.writeup-actions {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.writeup-actions .btn-primary {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.writeup-actions .btn-primary:first-child {
+  margin-left: 0;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.meta-item {
+  background: #f7f9fc;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.dark-mode .meta-item {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+.status-completed {
+  color: #16a34a;
+}
+
+.dark-mode .status-completed {
+  color: #4ade80;
+}
