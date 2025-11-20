@@ -608,3 +608,58 @@ nav .links a.active {
 .btn-project:hover {
   background: var(--btn-hover);
 }
+
+/* =========================================================
+   WRITEUP SPECIFIC STYLES
+   ========================================================= */
+
+.writeup-actions {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.meta-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.meta-item {
+  background: var(--card-bg);
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  font-size: 0.9rem;
+}
+
+.status-completed {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.code-block {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.code-block code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
